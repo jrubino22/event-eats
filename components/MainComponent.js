@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import {View, Platform} from 'react-native';
+import Constants from 'expo-constants';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Menu from './MenuComponent'
+import Home from './HomeComponent';
 import MenuItemCard from './menuItemInfoComponent';
-import Constants from 'expo-constants';
+
 
 const MenuNavigator = createStackNavigator(
     {
@@ -25,7 +28,34 @@ const MenuNavigator = createStackNavigator(
     }
 );
 
-const AppNavigator = createAppContainer(MenuNavigator) 
+const HomeNavigator = createStackNavigator(
+    {
+        Home: {screen: Home}
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#CF04DC'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+)
+
+const MainNavigator = createBottomTabNavigator(
+    {
+        Home: {screen: Home},
+        Menu: {screen: Menu}
+    },
+    {
+        drawerBackgroundColor: '#CF04DC'
+    }
+)
+
+const AppNavigator = createAppContainer(MainNavigator) 
 
 class Main extends Component {
 

@@ -1,21 +1,44 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import {MENU_ITEMS} from '../shared/menu-items'
+import {View, Platform} from 'react-native';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Menu from './MenuComponent'
-import {Home} from './HomeComponent'
+import MenuItemCard from './menuItemInfoComponent';
+import Constants from 'expo-constants';
 
-
-
-class Main extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            menuItems: MENU_ITEMS
+const MenuNavigator = createStackNavigator(
+    {
+        Menu: {screen: Menu},
+        MenuItemCard: {screen: MenuItemCard}
+    },
+    {
+        initialRouteName: "Menu",
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#CF04DC'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
         }
     }
+);
+
+const AppNavigator = createAppContainer(MenuNavigator) 
+
+class Main extends Component {
+
     render(){
-        return <Menu menuItems={this.state.menuItems} />
+        return (
+            <View
+                style={{
+                    flex: 1,
+                    paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+                }}>
+                <AppNavigator />
+            </View>
+            )
     }
 }
 

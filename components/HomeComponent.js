@@ -9,6 +9,7 @@ class Home extends Component {
 
     render() {
         return(
+            
             <Text>Home</Text>
         )
     }

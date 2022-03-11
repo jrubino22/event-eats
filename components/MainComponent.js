@@ -47,8 +47,8 @@ const HomeNavigator = createStackNavigator(
 
 const MainNavigator = createBottomTabNavigator(
     {
-        Home: {screen: Home},
-        Menu: {screen: Menu}
+        Home: {screen: HomeNavigator},
+        Menu: {screen: MenuNavigator}
     },
     {
         drawerBackgroundColor: '#CF04DC'
@@ -68,7 +68,7 @@ class Main extends Component {
                 }}>
                 <AppNavigator />
             </View>
-            )
+        )
     }
 }
 

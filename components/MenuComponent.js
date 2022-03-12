@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { Text, FlatList, TouchableOpacity } from 'react-native'
 import { ListItem, Card } from 'react-native-elements'
 import { MENU_ITEMS } from '../shared/menu-items'
+import { connect } from 'react-redux'
+import { baseUrl } from '../shared/baseUrl'
+
+const mapStateToProps = state => {
+    return {
+        menuItems: state.menuItems
+    }
+}
 
 
 class Menu extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            menuItems: MENU_ITEMS
-        }
-    }
 
     static navigationOptions = {
         title: 'Menu'
@@ -25,26 +27,16 @@ class Menu extends Component {
                 <TouchableOpacity onPress={() => navigate('MenuItemCard', {menuId: item.id})}>
                     <Card
                         featuredTitle={item.name}
-                        image={require('./images/steak-dinner.jpg')}>
+                        image={item.image}>
                         <Text style={{ margin: 10 }}>{item.description}</Text>
                     </Card>
                 </TouchableOpacity>
             )
         }
 
-        // const renderMenuItem = ({item}) => {
-        //     return (
-        //         <ListItem
-        //             title={item.name}
-        //             subtitle={item.description}
-        //             leftAvatar={{source: require('./images/steak-dinner.jpg')}}
-        //         />
-        //     )
-        // }
-
         return (
             <FlatList
-                data={this.state.menuItems}
+                data={this.props.menuItems}
                 renderItem={renderMenuItem}
                 keyExtractor={item => item.id.toString()}
             >
@@ -53,4 +45,4 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+export default connect(mapStateToProps)(Menu);

@@ -2,7 +2,7 @@ export const MENU_ITEMS = [
     {
         id: 0,
         name: "Steak Dinner",
-        image: "../components/images/steak-dinner.jpg",
+        image: "./components/images/steak-dinner.jpg",
         description: "12 oz sirloin cooked to your liking with your choice of side."
 
     },

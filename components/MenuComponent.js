@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, FlatList, TouchableOpacity } from 'react-native'
-import { ListItem, Card } from 'react-native-elements'
+import { ListItem, Card, Icon } from 'react-native-elements'
 import { MENU_ITEMS } from '../shared/menu-items'
 import { connect } from 'react-redux'
 import { baseUrl } from '../shared/baseUrl'
@@ -16,7 +16,14 @@ class Menu extends Component {
 
 
     static navigationOptions = {
-        title: 'Menu'
+        title: 'Menu',
+        tabBarIcon: () => {
+            <Icon
+                name='sign-in'
+                type='font-awesome'
+                iconStyle={{ color: white }}
+            />
+        }
     }
 
     render() {
@@ -24,7 +31,7 @@ class Menu extends Component {
         const {navigate} = this.props.navigation
         const renderMenuItem = ({ item }) => {
             return (
-                <TouchableOpacity onPress={() => navigate('MenuItemCard', {menuId: item.id})}>
+                <TouchableOpacity onPress={() => navigate('OrderForm', {menuId: item.id})}>
                     <Card
                         featuredTitle={item.name}
                         image={{uri: item.image}}

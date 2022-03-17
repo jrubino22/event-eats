@@ -8,7 +8,14 @@ import {Card} from 'react-native-elements'
 class Home extends Component {
 
     static navigationOptions = {
-        title: 'Home'
+        title: 'Home',
+        tabBarIcon: () => {
+            <Icon
+                name='house'
+                type='font-awesome'
+                iconStyle={{ color: white }}
+            />
+        }
     }
 
     render() {

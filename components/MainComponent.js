@@ -6,13 +6,13 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Menu from './MenuComponent'
 import Home from './HomeComponent';
-import MenuItemCard from './menuItemInfoComponent';
+import OrderForm from './OrderFormComponent';
 
 
 const MenuNavigator = createStackNavigator(
     {
         Menu: {screen: Menu},
-        MenuItemCard: {screen: MenuItemCard}
+        OrderForm: {screen: OrderForm}
     },
     {
         initialRouteName: "Menu",

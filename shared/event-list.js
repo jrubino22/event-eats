@@ -6,6 +6,7 @@ export const EVENT_LIST = [
         name2: "Paredes",
         date: "Some Time",
         time: "3:00 PM",
-        Address: "1805 54th Street, Washougal, WA 98671"
+        Address: "1805 54th Street, Washougal, WA 98671",
+        image: "../components/images/jb.jpeg"
     }
 ]

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, Animated} from 'react-native'
 import {Card} from 'react-native-elements'
+import { EVENT_LIST } from '../shared/event-list';
 
 
 

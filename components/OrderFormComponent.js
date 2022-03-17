@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, ScrollView, StyleSheet, Picker} from 'react-native'
+import {Text, View, ScrollView, StyleSheet, Picker, Button} from 'react-native'
 import {ListItem, Card} from 'react-native-elements'
 import { MENU_ITEMS } from '../shared/menu-items'
 import { baseUrl } from '../shared/baseUrl';
@@ -80,6 +80,11 @@ class OrderForm extends Component {
                             <Picker.item label={menuItem.options.option1.choices.choice4} value={menuItem.options.option1.choices.choice4}/>
                         </Picker>
                             <SecondPicker menuItem={menuItem} option2={this.state.option2} setStateFromChild={this.setStateFromChild}/>
+                    </View>
+                    <View>
+                        <Button
+                            title="Place Order"
+                        />
                     </View>
                 </ScrollView>
             </>

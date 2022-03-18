@@ -23,6 +23,7 @@ class Home extends Component {
     }
 
     render() {
+        const {navigate} = this.props.navigation
         const specificEvent = this.state.eventList.filter(x => x.id === 0)[0]
         return (
             <Card
@@ -33,13 +34,13 @@ class Home extends Component {
                     {`${specificEvent.date} \n${specificEvent.time} \n${specificEvent.address}`} 
                 </Text>
                 <Button
-                    icon={<Icon name='fa-utensils' type='font-awesome' color='#ffffff' />}
+                    // icon={<Icon name='fa-utensils' type='font-awesome' color='#ffffff' />}
                     buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                    title='View Dinner Menu' />
+                    title='View Dinner Menu' 
+                    onPress={() => navigate('Menu')}/>
             </Card>
         )
     }
-
 }
 
 export default Home

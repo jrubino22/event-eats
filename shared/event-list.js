@@ -4,9 +4,9 @@ export const EVENT_LIST = [
         type: "Wedding",
         name1: "Rubino",
         name2: "Paredes",
-        date: "Some Time",
+        date: "September 19, 2023",
         time: "3:00 PM",
-        Address: "1805 54th Street, Washougal, WA 98671",
+        address: "1805 54th Street, Washougal, WA 98671",
         image: "../components/images/jb.jpeg"
     }
 ]

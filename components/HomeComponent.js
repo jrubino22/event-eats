@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native'
-import { Card, Icon } from 'react-native-elements'
-import EVENT_LIST from '../shared/event-list';
+import { View, Text, Image } from 'react-native'
+import { Card, Icon, Button } from 'react-native-elements'
+import { EVENT_LIST } from '../shared/event-list';
 
 class Home extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             eventList: EVENT_LIST
         }
@@ -14,48 +14,29 @@ class Home extends Component {
 
     static navigationOptions = {
         title: 'Home',
-        tabBarIcon: () => {
+        tabBarIcon: () => (
             <Icon
-                name='house'
-                type='font-awesome'
-                iconStyle={{ color: white }}
+                name="home"              
+                color="black"
             />
-        }
+        )
     }
 
     render() {
+        const specificEvent = this.state.eventList.filter(x => x.id === 0)[0]
         return (
-            <View>
-                <Card>
-                    <Card.Title>{this.state.eventList.name1}
-                    </Card.Title>
-                    <Card.Divider />
-                    <Card.Image
-                        style={{ padding: 0 }}
-                        source={{uri: this.state.event.image}}
-                    />
-                    <Text style={{ marginBottom: 10 }}>
-                        The idea with React Native Elements is more about component
-                        structure than actual design.
-                    </Text>
-                    <Button
-                        icon={
-                            <Icon
-                                name="code"
-                                color="#ffffff"
-                                iconStyle={{ marginRight: 10 }}
-                            />
-                        }
-                        buttonStyle={{
-                            borderRadius: 0,
-                            marginLeft: 0,
-                            marginRight: 0,
-                            marginBottom: 0,
-                        }}
-                        title="VIEW NOW"
-                    />
-                </Card>
-            </View>
+            <Card
+                title={`Welcome to the \n${specificEvent.name2} & ${specificEvent.name1} Wedding!`}
+                image={require('./images/joeybrenda.jpg')}
+                imageStyle={{height: 385}}>
+                <Text style={{ marginBottom: 10 }}>
+                    {`${specificEvent.date} \n${specificEvent.time} \n${specificEvent.address}`} 
+                </Text>
+                <Button
+                    icon={<Icon name='fa-utensils' type='font-awesome' color='#ffffff' />}
+                    buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
+                    title='View Dinner Menu' />
+            </Card>
         )
     }
 

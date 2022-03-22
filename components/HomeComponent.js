@@ -35,9 +35,10 @@ class Home extends Component {
                 </Text>
                 <Button
                     // icon={<Icon name='fa-utensils' type='font-awesome' color='#ffffff' />}
-                    buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
+                    buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, backgroundColor: "#CF04DC" }}
                     title='View Dinner Menu' 
                     onPress={() => navigate('Menu')}/>
+                
             </Card>
         )
     }

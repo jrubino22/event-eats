@@ -64,16 +64,7 @@ export const MENU_ITEMS = [
                     choice3: "Thousand Island",
                     choice4: "Italian"
                 }
-            }
-            // },
-            // option2: {
-            //     question: null,
-            //     choices: {
-            //         choice1: null,
-            //         choice2: null,
-            //         choice3: null
-            //     }
-            // }            
+            }    
         }
     }
 ]

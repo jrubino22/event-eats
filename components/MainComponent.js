@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Menu from './MenuComponent'
 import Home from './HomeComponent';
 import OrderForm from './OrderFormComponent';
+import YourOrder from './YourOrderComponent'
 
 
 const MenuNavigator = createStackNavigator(
@@ -45,10 +46,29 @@ const HomeNavigator = createStackNavigator(
     }
 )
 
+const YourOrderNavigator = createStackNavigator(
+    {
+        YourOrder: {screen: YourOrder}
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#CF04DC'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+)
+
+
 const MainNavigator = createBottomTabNavigator(
     {
         Home: {screen: HomeNavigator},
-        Menu: {screen: MenuNavigator}
+        Menu: {screen: MenuNavigator},
+        YourOrder: {screen: YourOrderNavigator}
     },
     {
         drawerBackgroundColor: '#CF04DC'

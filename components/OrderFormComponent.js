@@ -19,28 +19,6 @@ function RenderItem({ menuItem }) {
     return <View />
 }
 
-// function SecondPicker(props) {
-//     const menuItem = props.menuItem
-//     const option2 = props.option2
-
-//     if (menuItem.options.option2) {
-//         return (
-//             <>
-//                 <Text>{menuItem.options.option2.question}</Text>
-//                 <Picker
-//                     selectedValue={option2}
-//                     onValueChange={(selectedValue) => props.setStateFromChild(selectedValue)}
-//                 >
-//                     <Picker.item label={menuItem.options.option2.choices.choice1} value={menuItem.options.option2.choices.choice1} />
-//                     <Picker.item label={menuItem.options.option2.choices.choice2} value={menuItem.options.option2.choices.choice2} />
-//                     <Picker.item label={menuItem.options.option2.choices.choice3} value={menuItem.options.option2.choices.choice3} />
-//                 </Picker>
-//             </>
-//         )
-//     } else return null
-// }
-
-
 class OrderForm extends Component {
     constructor(props) {
         super(props)
@@ -81,27 +59,27 @@ class OrderForm extends Component {
                             <Picker.item label={menuItem.options.option1.choices.choice3} value={menuItem.options.option1.choices.choice3} />
                             <Picker.item label={menuItem.options.option1.choices.choice4} value={menuItem.options.option1.choices.choice4} />
                         </Picker>
-                        {menuItem.options.option2 &&<>
-                        <Text>{menuItem.options.option2.question}</Text>
-                        <Picker
-                            selectedValue={this.state.option2}
-                            onValueChange={itemValue => this.setState({option2: itemValue})}
-                        >
-                            <Picker.item label={menuItem.options.option2.choices.choice1} value={menuItem.options.option2.choices.choice1} />
-                            <Picker.item label={menuItem.options.option2.choices.choice2} value={menuItem.options.option2.choices.choice2} />
-                            <Picker.item label={menuItem.options.option2.choices.choice3} value={menuItem.options.option2.choices.choice3} />
-                        </Picker>
-                        </>    }
-
-                    {/* <SecondPicker menuItem={menuItem} option2={this.state.option2} setStateFromChild={this.setStateFromChild}/> */}
-                </View>
-                <View>
-                    <Button
-                        title="Place Order"
-                        buttonStyle={{ marginRight: 4, backgroundColor: "#CF04DC" }}
-                    />
-                </View>
-            </ScrollView>
+                        {menuItem.options.option2 &&
+                            <>
+                                <Text>{menuItem.options.option2.question}</Text>
+                                <Picker
+                                    selectedValue={this.state.option2}
+                                    onValueChange={itemValue => this.setState({ option2: itemValue })}
+                                >
+                                    <Picker.item label={menuItem.options.option2.choices.choice1} value={menuItem.options.option2.choices.choice1} />
+                                    <Picker.item label={menuItem.options.option2.choices.choice2} value={menuItem.options.option2.choices.choice2} />
+                                    <Picker.item label={menuItem.options.option2.choices.choice3} value={menuItem.options.option2.choices.choice3} />
+                                </Picker>
+                            </>
+                        }
+                    </View>
+                    <View>
+                        <Button
+                            title="Place Order"
+                            buttonStyle={{ marginRight: 4, backgroundColor: "#CF04DC" }}
+                        />
+                    </View>
+                </ScrollView>
             </>
         )
     }

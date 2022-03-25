@@ -1,15 +1,12 @@
 import { MENU_ITEMS } from "../shared/menu-items";
 import * as ActionTypes from './ActionTypes'
 
-export const menuItems = (state = {
-    menuItems: [],
-    option1: null,
-    option2: null
-}, action) => {
+export const MenuItems = (state = MENU_ITEMS, action) => {
     switch (action.type) {
         case ActionTypes.ADD:
-            return {...state, option1, option2}
+            const menuItemOptions = action.payload
+            return state.concat(menuItemOptions)
         default:
-            return state
+            return state;
     }
 }

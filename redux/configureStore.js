@@ -1,11 +1,11 @@
-import {createStore} from 'redux';
-import {Reducer, initialState} from './reducer';
+import {createStore, combineReducers} from 'redux';
+import {MenuItems} from './menu-items';
 
 export const ConfigureStore = () => {
     const store = createStore(
-        Reducer,
-        initialState
-    )
-
+        combineReducers({
+            menuItems: MenuItems
+        })
+    );
     return store;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text, FlatList, TouchableOpacity } from 'react-native'
 
 class YourOrder extends Component{
 
@@ -12,6 +13,9 @@ class YourOrder extends Component{
             />
         }
     }
+
+
+    render(){return(<><Text>Nothing Yet!</Text></>)}
 }
 
 export default YourOrder

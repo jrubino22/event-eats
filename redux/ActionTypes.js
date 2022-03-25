@@ -1,3 +1,1 @@
-export const SELECT_OPTION_1 = SELECT_OPTION_1
-export const SELECT_OPTION_2 = SELECT_OPTION_2
-export const PLACE_ORDER = PLACE_ORDER
+export const ADD = 'ADD'

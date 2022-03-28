@@ -4,7 +4,18 @@ import { ListItem, Card } from 'react-native-elements'
 import { MENU_ITEMS } from '../shared/menu-items'
 import { baseUrl } from '../shared/baseUrl';
 import { connect } from 'react-redux';
+import { addMenuItem } from '../redux/ActionCreators'
 
+const mapStateToProps = state => {
+    return {
+        menuItems: state.menuItems,
+        addMenuItem: state.addMenuItem
+    }
+}
+
+const mapDispatchToProps = {
+    addMenuItem: (menuItemId, option1, option2) => addMenuItem(menuItemId, option1, option2)
+}
 
 function RenderItem({ menuItem }) {
     if (menuItem) {
@@ -29,7 +40,9 @@ class OrderForm extends Component {
         }
     }
 
-
+    onSubmit(menuItemId, option1, option2) {
+        this.props.addMenuItem(menuItemId, option1, option2)
+    }
 
     setStateFromChild = (itemValue) => {
         this.setState({ option2: itemValue })
@@ -77,6 +90,7 @@ class OrderForm extends Component {
                         <Button
                             title="Place Order"
                             buttonStyle={{ marginRight: 4, backgroundColor: "#CF04DC" }}
+                            onPress={this.onSubmit(menuItemId, option1, option2).bind(this)}
                         />
                     </View>
                 </ScrollView>
@@ -85,4 +99,4 @@ class OrderForm extends Component {
     }
 }
 
-export default OrderForm
+export default connect(mapStateToProps, mapDispatchToProps)(OrderForm);

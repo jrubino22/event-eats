@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import { Text, FlatList, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        menuItems: state.menuItems,
+        yourOrder: state.yourOrder
+    }
+}
 
 class YourOrder extends Component{
 

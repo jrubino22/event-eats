@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 
-const addMenuItem = (menuItemId, option1, option2) => ({
+export const addMenuItem = (menuItemId, option1, option2) => ({
     type: ActionTypes.ADD,
     payload: {
         menuItemId: menuItemId,

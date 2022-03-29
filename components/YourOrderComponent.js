@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, FlatList, View, TouchableOpacity } from 'react-native';
+import { Text, FlatList, View, Button } from 'react-native';
 import {ListItem} from 'react-native-elements';
 import { connect } from 'react-redux';
 
@@ -40,7 +40,7 @@ class YourOrder extends Component {
         }
         return (
             <>
-            {this.props.yourOrder.order.menuItemId ?
+            {this.props.yourOrder.order ?
             <View animation='fadeInRightBig' duration={2000}>
                 <FlatList
                     data={this.props.menuItems.filter(
@@ -49,6 +49,7 @@ class YourOrder extends Component {
                     renderItem={renderYourOrder}
                     keyExtractor={item => item.id.toString()}
                 />
+                <Button title="press" onPress={() => console.log(this.props.yourOrder)}>press me</Button>
             </View>
             :
             <Text>Your orders will appear here once you place one!</Text>

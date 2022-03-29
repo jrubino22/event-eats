@@ -90,7 +90,7 @@ class OrderForm extends Component {
                         <Button
                             title="Place Order"
                             buttonStyle={{ marginRight: 4, backgroundColor: "#CF04DC" }}
-                            onPress={() => this.handleSubmit(this.menuItemId)}
+                            onPress={() => this.handleSubmit(menuItem.id)}
                         />
                     </View>
                 </ScrollView>

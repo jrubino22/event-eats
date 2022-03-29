@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, FlatList, TouchableOpacity } from 'react-native'
+import { Text, FlatList, View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -9,7 +9,7 @@ const mapStateToProps = state => {
     }
 }
 
-class YourOrder extends Component{
+class YourOrder extends Component {
 
     static navigationOptions = {
         title: 'Your Order',
@@ -23,7 +23,20 @@ class YourOrder extends Component{
     }
 
 
-    render(){return(<><Text>Nothing Yet!</Text></>)}
+    render() {
+        const {navigate} = this.props.navigation
+        return (
+            <View animation='fadeInRightBig' duration={2000}>
+                <FlatList
+                    data={this.props.menuItems.filter(
+                        menuItems => this.props.yourOrder.menuItemId.includes(menuItems.id)
+                    )}
+                    renderItem={renderFavoriteItem}
+                    keyExtractor={item => item.id.toString()}
+                />
+            </View>
+        )
+    }
 }
 
-export default YourOrder
+export default connect(mapStateToProps)(YourOrder)

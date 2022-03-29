@@ -34,8 +34,8 @@ class OrderForm extends Component {
         super(props)
         this.state = {
             menuItems: MENU_ITEMS,
-            option1: null,
-            option2: null
+            option1: '',
+            option2: ''
         }
     }
 

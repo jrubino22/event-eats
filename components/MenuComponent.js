@@ -34,7 +34,7 @@ class Menu extends Component {
                 <TouchableOpacity onPress={() => navigate('OrderForm', {menuId: item.id})}>
                     <Card
                         featuredTitle={item.name}
-                        image={{uri: item.image}}
+                        image={item.image}
                         >
                         <Text style={{ margin: 10 }}>{item.description}</Text>
                     </Card>

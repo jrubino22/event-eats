@@ -2,7 +2,7 @@ export const MENU_ITEMS = [
     {
         id: 0,
         name: "Steak Dinner",
-        image: "./components/images/steak-dinner.jpg",
+        image: require('../components/images/steak-dinner.jpg'),
         description: "12 oz sirloin cooked to your liking with your choice of side.",
         options: {
             option1: {
@@ -28,7 +28,7 @@ export const MENU_ITEMS = [
     {
         id: 1,
         name: "Sushi Dinner",
-        image: "../components/images/sushi-dinner.jpg",
+        image: require('../components/images/sushi-dinner.jpg'),
         description: "your choice of fresh sushi roll.",
         options: {
             option1: {
@@ -53,7 +53,7 @@ export const MENU_ITEMS = [
     {
         id: 2,
         name: "Walnut Salad Dinner",
-        image: "/assets/images/salad-dinner.jpg",
+        image: require('../components/images/salad-dinner.jpg'),
         description: "Hand-tossed walnut salad with your choice of dressing.",
         options: {
             option1: {

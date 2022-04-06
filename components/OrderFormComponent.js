@@ -21,7 +21,7 @@ function RenderItem({ menuItem }) {
         return (
             <Card
                 featuredTitle={menuItem.name}
-                image={{ uri: menuItem.image }}>
+                image={ menuItem.image }>
                 <Text style={{ margin: 10 }}>{menuItem.description}</Text>
             </Card>
         )

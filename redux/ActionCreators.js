@@ -11,5 +11,8 @@ export const addMenuItem = (menuItemId, option1, option2) => ({
 })
 
 export const removeMenuItem = (menuItemId, option1, option2) => ({
-    
+    type: ActionTypes.REMOVE_ITEM,
+    payload: {
+        menuItemId: menuItemId
+    }
 })

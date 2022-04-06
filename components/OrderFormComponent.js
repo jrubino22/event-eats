@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, Picker, Button, } from 'react-native'
+import { Text, View, ScrollView, StyleSheet, Picker, Button, Alert} from 'react-native'
 import { ListItem, Card } from 'react-native-elements'
 import { MENU_ITEMS } from '../shared/menu-items'
 import { connect } from 'react-redux';
@@ -40,6 +40,7 @@ class OrderForm extends Component {
     }
 
     handleSubmit(menuItemId) {
+        Alert.alert("Your order has been placed!")
         this.props.addMenuItem(menuItemId, this.state.option1, this.state.option2)
         console.log(this.props.option1)
     }

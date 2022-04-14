@@ -25,7 +25,7 @@ export const MENU_ITEMS = [
             
         }
     },
-    {
+    { 
         id: 1,
         name: "Sushi Dinner",
         image: require('../components/images/sushi-dinner.jpg'),

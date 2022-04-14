@@ -3,7 +3,7 @@ import Main from './components/MainComponent'
 import { StyleSheet, Text, View } from 'react-native';
 import {Provider} from 'react-redux';
 import {ConfigureStore} from './redux/configureStore'
-import { PersistGate } from './components/LoadingComponent'
+import { PersistGate } from 'redux-persist/es/integration/react'
 
 const { persistor, store } = ConfigureStore();
 

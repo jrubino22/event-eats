@@ -27,9 +27,9 @@ class Home extends Component {
         const specificEvent = this.state.eventList.filter(x => x.id === 0)[0]
         return (
             <Card
-                title={`Welcome to the \n${specificEvent.name2} & ${specificEvent.name1} Wedding!`}
-                image={require('./images/joeybrenda.jpg')}
-                imageStyle={{height: 385}}>
+                title={`Welcome to the \n${specificEvent.name2} & ${specificEvent.name1} ${specificEvent.type}!`}
+                image={specificEvent.image}
+                imageStyle={{height: 445}}>
                 <Text style={{ marginBottom: 10 }}>
                     {`${specificEvent.date} \n${specificEvent.time} \n${specificEvent.address}`} 
                 </Text>

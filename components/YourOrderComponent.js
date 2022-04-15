@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, FlatList, View, Button } from 'react-native';
+import { Text, FlatList, View, Button, StyleSheet } from 'react-native';
 import {ListItem} from 'react-native-elements';
 import { connect } from 'react-redux';
 import { removeMenuItem } from '../redux/ActionCreators';
@@ -34,7 +34,8 @@ class YourOrder extends Component {
         const renderYourOrder = ({item}) => {
             return(
                 <View>
-                    <ListItem
+                    <ListItem 
+                        style={styles.itemName}
                         title={item.name}
                         subtitle={`${this.props.yourOrder.order.option1} \n${this.props.yourOrder.order.option2}`}
                         leftAvatar={{ source:  item.image }}
@@ -54,14 +55,25 @@ class YourOrder extends Component {
                     renderItem={renderYourOrder}
                     keyExtractor={item => item.id.toString()}
                 />
-                <Button title="Remove" onPress={() => this.props.removeMenuItem(this.props.menuItems.id)}>Remove</Button>
+                <Button color="red" title="Remove" onPress={() => this.props.removeMenuItem(this.props.menuItems.id)}>
+                    Remove
+                </Button>
             </View>
             :
-            <Text>Your order will appear here once you place one!</Text>
+            <Text>Your order will appear here once you place it!</Text>
             }
             </>
         )
     }
  }
+
+const styles = StyleSheet.create({
+    deleteButton: {
+        backgroundColor: 'red'
+    },
+    itemName: {
+        fontSize: 74
+    }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(YourOrder)

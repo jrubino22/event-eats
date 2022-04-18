@@ -53,11 +53,20 @@ class OrderForm extends Component {
         title: 'Place Order'
     }
 
-    render() {
+    componentDidMount(){
+        const menuItemId = this.props.navigation.getParam('menuId')
+        const menuItem = this.state.menuItems.filter(menuItem => menuItem.id === menuItemId)[0]
+        this.setState({ option1: menuItem.options.option1.choices.choice1 })
+        this.setState({ option2: menuItem.options.option2.choices.choice1 })
+    }
 
+
+    render() {
 
         const menuItemId = this.props.navigation.getParam('menuId')
         const menuItem = this.state.menuItems.filter(menuItem => menuItem.id === menuItemId)[0]
+
+
         return (
             <>
                 <RenderItem menuItem={menuItem} />
@@ -80,6 +89,7 @@ class OrderForm extends Component {
                                     selectedValue={this.state.option2}
                                     onValueChange={itemValue => this.setState({ option2: itemValue })}
                                 >
+                                    
                                     <Picker.Item label={menuItem.options.option2.choices.choice1} value={menuItem.options.option2.choices.choice1} />
                                     <Picker.Item label={menuItem.options.option2.choices.choice2} value={menuItem.options.option2.choices.choice2} />
                                     <Picker.Item label={menuItem.options.option2.choices.choice3} value={menuItem.options.option2.choices.choice3} />

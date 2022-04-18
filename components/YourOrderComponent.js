@@ -55,7 +55,7 @@ class YourOrder extends Component {
                     renderItem={renderYourOrder}
                     keyExtractor={item => item.id.toString()}
                 />
-                <Button color="red" title="Remove" onPress={() => this.props.removeMenuItem(this.props.menuItems.id)}>
+                <Button color="#CF04DC" title="Remove" onPress={() => this.props.removeMenuItem(this.props.menuItems.id)}>
                     Remove
                 </Button>
             </View>
@@ -68,12 +68,6 @@ class YourOrder extends Component {
  }
 
 const styles = StyleSheet.create({
-    deleteButton: {
-        backgroundColor: 'red'
-    },
-    itemName: {
-        fontSize: 74
-    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(YourOrder)

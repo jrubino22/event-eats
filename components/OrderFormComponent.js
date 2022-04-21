@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet, Picker, Button, Alert} from 'react-native'
-import { ListItem, Card } from 'react-native-elements'
+import { Card } from 'react-native-elements'
 import { MENU_ITEMS } from '../shared/menu-items'
 import { connect } from 'react-redux';
 import { addMenuItem } from '../redux/ActionCreators'
@@ -60,12 +60,10 @@ class OrderForm extends Component {
         this.setState({ option2: menuItem.options.option2.choices.choice1 })
     }
 
-
     render() {
 
         const menuItemId = this.props.navigation.getParam('menuId')
         const menuItem = this.state.menuItems.filter(menuItem => menuItem.id === menuItemId)[0]
-
 
         return (
             <>

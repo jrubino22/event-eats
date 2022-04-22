@@ -37,8 +37,13 @@ class YourOrder extends Component {
                     <ListItem 
                         style={styles.itemName}
                         title={item.name}
+                        titleStyle={styles.title}
                         subtitle={`${this.props.yourOrder.order.option1} \n${this.props.yourOrder.order.option2}`}
-                        leftAvatar={{ source:  item.image }}
+                        subtitleStyle={styles.subtitle}
+                        leftAvatar={{ 
+                            source:  item.image ,
+                            style: styles.avatar
+                        }}
                         onPress={() => navigate('OrderForm', {menuId: item.id})}
                     />
                 </View>
@@ -60,7 +65,7 @@ class YourOrder extends Component {
                 </Button>
             </View>
             :
-            <Text>Your order will appear here once you place it!</Text>
+            <Text style={styles.elseText}>Your order will appear here once you place it!</Text>
             }
             </>
         )
@@ -68,6 +73,21 @@ class YourOrder extends Component {
  }
 
 const styles = StyleSheet.create({
+    title: {
+        fontSize: 35
+    },
+    subtitle: {
+        fontSize: 18
+    },
+    avatar: {
+        height: 125,
+        width: 150,
+    },
+    elseText: {
+        marginTop: 75,
+        fontSize: 18,
+        textAlign: 'center'
+    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(YourOrder)

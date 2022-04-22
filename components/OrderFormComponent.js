@@ -57,7 +57,11 @@ class OrderForm extends Component {
         const menuItemId = this.props.navigation.getParam('menuId')
         const menuItem = this.state.menuItems.filter(menuItem => menuItem.id === menuItemId)[0]
         this.setState({ option1: menuItem.options.option1.choices.choice1 })
+        menuItem.options.option2
+        ?
         this.setState({ option2: menuItem.options.option2.choices.choice1 })
+        :
+        null
     }
 
     render() {

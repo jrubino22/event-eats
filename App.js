@@ -1,4 +1,5 @@
 import React from 'react'
+import Login from './components/LoginComponent'
 import Main from './components/MainComponent'
 import { StyleSheet, Text, View } from 'react-native';
 import {Provider} from 'react-redux';
@@ -11,7 +12,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-      <Main/>
+        <Main/>
       </PersistGate>
     </Provider>
   );

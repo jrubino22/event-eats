@@ -7,8 +7,17 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Menu from './MenuComponent'
 import Home from './HomeComponent';
 import OrderForm from './OrderFormComponent';
-import YourOrder from './YourOrderComponent'
+import YourOrder from './YourOrderComponent';
+import Login from './LoginComponent'
 
+const LoginNavigator = createStackNavigator(
+    {
+        Login: {screen: Login}
+    },
+    {
+        initialRouteName: "Login"
+    }
+)
 
 const MenuNavigator = createStackNavigator(
     {
@@ -71,6 +80,7 @@ const MainNavigator = createBottomTabNavigator(
         YourOrder: {screen: YourOrderNavigator}
     },
     {
+        initialRouteName: 'Login',
         drawerBackgroundColor: '#CF04DC'
     }
 )

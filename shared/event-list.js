@@ -6,7 +6,7 @@ export const EVENT_LIST = [
         name2: "Paredes",
         date: "September 19, 2023",
         time: "3:00 PM",
-        address: "1805 54th Street, Washougal, WA 98671",
+        address: "1858 11th Street, Washougal, WA 98671",
         image: require("../components/images/joeybrenda.jpg")
     }
 ]

@@ -80,12 +80,29 @@ const MainNavigator = createBottomTabNavigator(
         YourOrder: {screen: YourOrderNavigator}
     },
     {
-        initialRouteName: 'Login',
+        // initialRouteName: 'Login',
         drawerBackgroundColor: '#CF04DC'
     }
 )
 
-const AppNavigator = createAppContainer(MainNavigator) 
+
+const InitialNavigator = createStackNavigator(
+    {
+        Login: {screen: LoginNavigator},
+        Main: {screen: MainNavigator}
+    },
+    {
+        initialRouteName: 'Login',
+        headerShown: false
+    },
+    {
+        defaultNavigationOptions:{
+            headerShown: false
+        }
+    }
+)
+
+const AppNavigator = createAppContainer(InitialNavigator) 
 
 class Main extends Component {
 

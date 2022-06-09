@@ -2,19 +2,33 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {Formik} from 'formik'
 
+import axios from 'axios';
 
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+const Login = ({navigation}) => {
+  
+  
+  const handleLogin = (credentials)  => {
+    const url = 'http://192.168.0.5:3000/users/signin';
 
-  handlerLogin = async () => {
-    this.props.navigation.navigate("Home");
+    
+  axios
+    .post(url, credentials)
+    .then((response) => {
+      const result = response.data;
+      const {status, data} = result;
+      
+      if (status !== 'SUCCESS') {
+        status
+      } else {
+        navigation.navigate('Main', {...data[0] })
+      }
+    })
+    .catch(error => {
+      console.log(error.JSON());
+    })
   };
 
-  render() {
     return (
       <View style={styles.view}>
         <View style={styles.innerView}>
@@ -24,13 +38,14 @@ class Login extends Component {
           <Formik
             initialValues={{username: '', password: ''}}
             onSubmit={(values) => {
-              console.log(values)
+              console.log(values);
+              handleLogin(values)
             }}
           >
             {({handleChange, handleBlur, handleSubmit, values}) => <View style={styles.formArea}>
                 <CustomTextInput
                   label="Username"
-                  placeholder="example@website.com"
+                  placeholder="example"
                   onChangeText={handleChange('username')}
                   onBlur={handleBlur('username')}
                   value={values.username}
@@ -43,7 +58,6 @@ class Login extends Component {
                   value={values.password}
                   secureTextEntry={true}
                 />
-                <Text style={styles.error}>...</Text>
                 <TouchableOpacity style={styles.button}
                   onPress={handleSubmit}
                 >
@@ -54,7 +68,7 @@ class Login extends Component {
         </View>
       </View>
     );
-  }
+
 }
 
 const CustomTextInput = ({label, icon, ...props}) => {
@@ -80,7 +94,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     fontWeight: 'bold',
-    marginTop: 80
+    marginTop: 5
   },
   subtitle: {
     fontSize: 17,
